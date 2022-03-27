@@ -2,6 +2,7 @@ using Solnet.Wallet;
 using System;
 using System.Buffers.Binary;
 using System.Diagnostics;
+using System.IO;
 using System.Numerics;
 using System.Text;
 
@@ -183,8 +184,8 @@ namespace Solnet.Programs.Utilities
         {
             if (offset + sizeof(double) > data.Length)
                 throw new ArgumentOutOfRangeException(nameof(offset));
-
-            return BinaryPrimitives.ReadDoubleLittleEndian(data.Slice(offset, sizeof(double)));
+            
+            return BinaryPrimitivesUtility.ReadDoubleLittleEndian(data.Slice(offset, sizeof(double)));
         }
 
         /// <summary>
@@ -198,8 +199,8 @@ namespace Solnet.Programs.Utilities
         {
             if (offset + sizeof(float) > data.Length)
                 throw new ArgumentOutOfRangeException(nameof(offset));
-
-            return BinaryPrimitives.ReadSingleLittleEndian(data.Slice(offset, sizeof(float)));
+            
+            return BinaryPrimitivesUtility.ReadSingleLittleEndian(data.Slice(offset, sizeof(float)));
         }
 
 

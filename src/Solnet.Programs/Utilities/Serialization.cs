@@ -212,8 +212,8 @@ namespace Solnet.Programs.Utilities
         {
             if (offset + sizeof(double) > data.Length)
                 throw new ArgumentOutOfRangeException(nameof(offset));
-
-            BinaryPrimitives.WriteDoubleLittleEndian(data.AsSpan(offset, sizeof(double)), value);
+            
+            BinaryPrimitivesUtility.WriteDoubleLittleEndian(data.AsSpan(offset, sizeof(double)), value);
         }
 
         /// <summary>
@@ -227,8 +227,8 @@ namespace Solnet.Programs.Utilities
         {
             if (offset + sizeof(float) > data.Length)
                 throw new ArgumentOutOfRangeException(nameof(offset));
-
-            BinaryPrimitives.WriteSingleLittleEndian(data.AsSpan(offset, sizeof(float)), value);
+            
+            BinaryPrimitivesUtility.WriteSingleLittleEndian(data.AsSpan(offset, sizeof(float)), value);
         }
 
         /// <summary>

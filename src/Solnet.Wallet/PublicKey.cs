@@ -280,7 +280,7 @@ namespace Solnet.Wallet
             buffer.Write(programId.KeyBytes);
             buffer.Write(ProgramDerivedAddressBytes);
 
-            byte[] hash = SHA256.HashData(new ReadOnlySpan<byte>(buffer.GetBuffer(), 0, (int)buffer.Length));
+            byte[] hash = Utils.Sha256(new ReadOnlySpan<byte>(buffer.GetBuffer(), 0, (int)buffer.Length));
 
             if (hash.IsOnCurve())
             {
@@ -357,7 +357,7 @@ namespace Solnet.Wallet
                 }
             }
 
-            byte[] hash = SHA256.HashData(seeds);
+            byte[] hash = Utils.Sha256(seeds);
             publicKeyOut = new PublicKey(hash);
             return true;
         }
